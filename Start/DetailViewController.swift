@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SDWebImage
+import SwiftyJSON
 
 class DetailViewController: UIViewController {
     
@@ -31,14 +32,12 @@ class DetailViewController: UIViewController {
         let url = url_detail_vc + urlId
         Alamofire.request(.GET, url).validate().responseJSON{ response in
             if response.result.isSuccess {
-                if let dataJson = try? NSJSONSerialization.JSONObjectWithData(response.data!, options: .AllowFragments) {
-                    let results = dataJson.valueForKey("results") as! NSMutableArray
-                    self.detail = Detail()
-                    self.detail = Detail.creatData(results.firstObject as! NSDictionary)
-                    print(self.detail.artistName)
+                let json = JSON(data: response.data!)
+                if let results = json["results"].array {
+                    self.detail = Detail.creatData(results.first! as JSON)
                     self.loadingView(self.detail)
                 }
-                print("loading view . . . .")
+                
             }
         }
     }

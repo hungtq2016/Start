@@ -7,30 +7,18 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class Detail {
     var artworkUrl100,screenshotUrls1,screenshotUrls2,screenshotUrls3,trackCensoredName,description,artistName : String!
-    
-    static func creatData(dict: NSDictionary) -> Detail {
+    static func creatData(dict: JSON) -> Detail {
         let detail : Detail = Detail()
-        
-        detail.artistName = dict.valueForKey("artistName") as? String
-//        print(detail.artistName)
-        detail.artworkUrl100 = dict.valueForKey("artworkUrl100") as? String
-        let arrScreen = dict.valueForKey("screenshotUrls") as? NSMutableArray
-        if ( arrScreen != nil ){
-            
-        detail.screenshotUrls1 = arrScreen?.objectAtIndex(0) as? String
-        detail.screenshotUrls2 = arrScreen?.objectAtIndex(1) as? String
-//        detail.screenshotUrls3 = arrScreen?.objectAtIndex(2) as? String
-        }
-        detail.trackCensoredName = dict.valueForKey("trackCensoredName") as? String
-        detail.description = dict.valueForKey("description") as? String
-        
-        
-        
-        
-        
+        detail.artistName = dict["artistName"].string
+        detail.artworkUrl100 = dict["artworkUrl100"].string
+        detail.trackCensoredName = dict["trackCensoredName"].string
+        detail.description = dict["description"].string
+        detail.screenshotUrls1 = dict["screenshotUrls"][0].string
+        detail.screenshotUrls2 = dict["screenshotUrls"][1].string
         return detail
     }
-    }
+}
