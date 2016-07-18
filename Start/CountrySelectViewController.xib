@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CountrySelectViewController" customModule="Start" customModuleProvider="target">
+            <connections>
+                <outlet property="tableViewConnect" destination="IRC-36-ZtX" id="PMY-vM-iD0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IRC-36-ZtX">
+                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EuA-Ip-NJk">
+                    <rect key="frame" x="19" y="27" width="11" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="Mpi-OB-fIN"/>
+                        <constraint firstAttribute="width" constant="11" id="d2r-So-wvN"/>
+                    </constraints>
+                    <state key="normal" image="b_btn_2.png"/>
+                    <connections>
+                        <action selector="backButtonClick:" destination="-1" eventType="touchUpInside" id="2c3-rm-Kdu"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="_NATO.png" translatesAutoresizingMaskIntoConstraints="NO" id="6DD-4R-cuE">
+                    <rect key="frame" x="286" y="26" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="NX8-cw-rV9"/>
+                        <constraint firstAttribute="width" constant="24" id="qb4-Ne-fZA"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venezuela" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEb-jH-mAL">
+                    <rect key="frame" x="207" y="30" width="63" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="EuA-Ip-NJk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="19" id="0pI-zH-Oh5"/>
+                <constraint firstAttribute="bottom" secondItem="IRC-36-ZtX" secondAttribute="bottom" id="Jnc-Iz-eZ6"/>
+                <constraint firstItem="EuA-Ip-NJk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27" id="KvM-tT-dRc"/>
+                <constraint firstAttribute="trailing" secondItem="6DD-4R-cuE" secondAttribute="trailing" constant="10" id="L4c-zz-W8e"/>
+                <constraint firstItem="6DD-4R-cuE" firstAttribute="leading" secondItem="BEb-jH-mAL" secondAttribute="trailing" constant="16" id="Vc4-3l-y2X"/>
+                <constraint firstItem="IRC-36-ZtX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="a1s-pk-wyb"/>
+                <constraint firstAttribute="trailing" secondItem="IRC-36-ZtX" secondAttribute="trailing" id="doj-zg-elV"/>
+                <constraint firstItem="6DD-4R-cuE" firstAttribute="centerY" secondItem="EuA-Ip-NJk" secondAttribute="centerY" id="dqH-yE-lkt"/>
+                <constraint firstItem="BEb-jH-mAL" firstAttribute="centerY" secondItem="EuA-Ip-NJk" secondAttribute="centerY" id="gzH-FG-l7g"/>
+                <constraint firstItem="IRC-36-ZtX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iv2-jf-OIg"/>
+                <constraint firstItem="BEb-jH-mAL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EuA-Ip-NJk" secondAttribute="trailing" constant="50" id="yO0-Nf-R3s"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="308" y="294"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="_NATO.png" width="24" height="24"/>
+        <image name="b_btn_2.png" width="11" height="21"/>
+    </resources>
+</document>
