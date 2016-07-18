@@ -16,10 +16,8 @@ class LishCategoryViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBOutlet weak var tableViewConnect: UITableView!
     var delegate : categoryDelegate!
-    var newapplications = "newapplications"
-    var topfreeebooks =  "topfreeebooks"
-    var topmovies = "topmovies"
-    
+    var arrApp = ["newapplications","topfreeebooks","topmovies"]
+    var arrLabel = ["App","Books","Movies"]
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewConnect.separatorStyle = .None
@@ -37,24 +35,12 @@ class LishCategoryViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableViewConnect.dequeueReusableCellWithIdentifier("CategoryTableViewCell") as! CategoryTableViewCell
-        if indexPath.section == 0 {
-            cell.lbCategory.text = "App"
-        }else if indexPath.section == 1 {
-            cell.lbCategory.text = "Books"
-        }else {
-            cell.lbCategory.text = "Movies"
-        }
+        cell.lbCategory.text = arrLabel[indexPath.section]
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 0  {
-            delegate.reloaddataCategory(newapplications)
-        }else if indexPath.section == 1{
-            delegate.reloaddataCategory(topfreeebooks)
-        }else{
-            delegate.reloaddataCategory(topmovies)
-        }
+        delegate.reloaddataCategory(arrApp[indexPath.section])
         dismissViewControllerAnimated(true, completion: nil)
     }
     

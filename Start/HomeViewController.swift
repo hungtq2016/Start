@@ -44,10 +44,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 70
-    }
-    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let newvc : DetailViewController = DetailViewController.init(nibName:"DetailViewController",bundle:  nil)
         let entry: App = (arrayApps?.objectAtIndex(indexPath.row) ) as! App
