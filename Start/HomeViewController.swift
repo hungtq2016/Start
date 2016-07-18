@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SDWebImage
-
+import SwiftyJSON
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -57,16 +57,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         Alamofire.request(.GET, url).validate().responseJSON{ response in
             if response.result.isSuccess {
                 self.arrayApps = NSMutableArray()
-                if let dataJson = try? NSJSONSerialization.JSONObjectWithData(response.data!, options: .AllowFragments) {
-                    let feed = dataJson.valueForKey("feed") as! NSDictionary
-                    let entry = feed.valueForKey("entry") as! NSArray
+                //Use SwftyJSON
+                let json = JSON(data: response.data!)
+                if let entry = json["feed"]["entry"].array {
                     for dict in entry {
-                        let app = App.createData(dict as! NSDictionary)
+                        let app = App.createData(dict as JSON)
                         self.arrayApps?.addObject(app)
                     }
                     self.tableViewConnect.reloadData()
-                    print("geting data . . . .")
                 }
+                
             }
         }
     }
@@ -87,7 +87,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 }
 
 //MARK: - Extension HomeVC
-extension HomeViewController: CountryDelegate, categoryDelegate { 
+extension HomeViewController: CountryDelegate, categoryDelegate {
     func reloadData(country: String!) {
         country1 = country
         getData(country, category: category1)

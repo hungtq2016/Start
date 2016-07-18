@@ -7,33 +7,17 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class App {
     var name,right,price,image,artist,title,link,id,contentType: String?
     var category : [Int]?
-    
-    
-    static func createData(dict: NSDictionary) -> App {
+    static func createData(dict: JSON) -> App {
         let app: App = App()
-        
-        var dictt  = dict.valueForKey("im:name") as! NSDictionary
-        app.name = dictt.valueForKey("label") as? String
-        
-        dictt = dict.valueForKey("im:artist") as! NSDictionary
-        app.right = dictt.valueForKey("label") as? String
-        
-        let image = dict.valueForKey("im:image") as! NSArray
-        let ima = image.lastObject as? NSDictionary
-        app.image = ima!.valueForKey("label") as? String
-        
-        
-        let detailId = dict.valueForKey("id") as! NSDictionary
-        let id = detailId.valueForKey("attributes") as! NSDictionary
-        app.id = id.valueForKey("im:id") as? String
-        
-
-        
-        
+        app.name = dict["im:name"]["label"].string
+        app.right = dict["im:artist"]["label"].string
+        app.image = dict["im:image"][2]["label"].string
+        app.id = dict["id"]["attributes"]["im:id"].string
         return app
     }
     
