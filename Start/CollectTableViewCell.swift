@@ -17,21 +17,8 @@ class CollectTableViewCell: UITableViewCell {
     @IBOutlet weak var lbAppnumber: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
-        
         btnActive.layer.cornerRadius = 3
         btnActive.layer.borderWidth = 1.5
         btnActive.layer.borderColor = UIColor.grayColor().CGColor
-        
-        
-        // Initialization code
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
