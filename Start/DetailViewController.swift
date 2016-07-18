@@ -26,7 +26,6 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(url_id)
         self.navigationController?.navigationBar.hidden = true
 //        scrollView1.contentInset = UIEdgeInsetsMake(0, 0, 500, 0)
         
@@ -45,9 +44,7 @@ class DetailViewController: UIViewController {
         print(url)
         Alamofire.request(.GET, url).validate().responseJSON{ response in
             if response.result.isSuccess {
-                
                 let dataJson = try? NSJSONSerialization.JSONObjectWithData(response.data!, options: .AllowFragments)
-                
                 if dataJson != nil {
                     let results = dataJson?.valueForKey("results") as! NSMutableArray
                     self.detail = Detail()
@@ -55,7 +52,6 @@ class DetailViewController: UIViewController {
                     print(self.detail.artistName)
                     self.loadingView(self.detail)
                     }
-                
                     print("loading view . . . .")
                 
                 }
@@ -69,7 +65,6 @@ class DetailViewController: UIViewController {
         if detail.screenshotUrls1 != nil  {
             ImgScreenShort1.sd_setImageWithURL(NSURL(string: detail.screenshotUrls1), placeholderImage: UIImage(named: "no-image"), options: SDWebImageOptions.HighPriority)
             imgScreenShort2.sd_setImageWithURL(NSURL(string: detail.screenshotUrls2), placeholderImage: UIImage(named: "no-image"), options: SDWebImageOptions.HighPriority)
-//            imgScreenShort3.sd_setImageWithURL(NSURL(string: detail.screenshotUrls3), placeholderImage: UIImage(named: "no-image"), options: SDWebImageOptions.HighPriority)
         }
     }
 
@@ -85,7 +80,7 @@ class DetailViewController: UIViewController {
     */
     @IBAction func backButtonClick(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
-            self.navigationController?.navigationBar.hidden = false
+        self.navigationController?.navigationBar.hidden = false
         
     }
 
