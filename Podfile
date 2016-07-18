@@ -6,6 +6,7 @@
 target 'Start' do
 pod 'Alamofire', '~> 3.2'
 pod 'SDWebImage', '~>3.7'
+pod 'SwiftyJSON'
 end
 
 target 'StartTests' do
